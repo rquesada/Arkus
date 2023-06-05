@@ -11,7 +11,7 @@ enum NetworkError: Error {
     case badURL
     case noData
     case decodingError
-    case serverError
+    case serverError(String)
 }
 
 class HTTPClient {
@@ -33,10 +33,10 @@ class HTTPClient {
                 return completion(.failure(.noData))
             }
             guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) else {
-                guard (try? JSONDecoder().decode(ErrorResponse.self, from: data)) != nil else {
+                guard let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) else {
                     return completion(.failure(.decodingError))
                 }
-                return completion(.failure(.serverError))
+                return completion(.failure(.serverError(errorResponse.msg)))
             }
             return completion(.success(loginResponse))
         }.resume()
@@ -55,10 +55,10 @@ class HTTPClient {
                 return completion(.failure(.noData))
             }
             guard let signupResponse = try? JSONDecoder().decode(SignupResponse.self, from: data) else {
-                guard (try? JSONDecoder().decode(SignupResponse.self, from: data)) != nil else {
+                guard let signupErrorResponse = try? JSONDecoder().decode(SignupErrorResponse.self, from: data) else {
                     return completion(.failure(.decodingError))
                 }
-                return completion(.failure(.serverError))
+                return completion(.failure(.serverError(signupErrorResponse.errorMessages())))
             }
             return completion(.success(signupResponse))
         }.resume()

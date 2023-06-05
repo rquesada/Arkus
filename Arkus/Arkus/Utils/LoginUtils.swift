@@ -26,12 +26,19 @@ class LoginUtils {
         return isValid
     }
     
-    /// Validate password and repeat password match
-    /// - Parameters:
-    ///   - password: password user
-    ///   - repeatPassword: repeat password user
-    /// - Returns: true if password are equal
-    class func matchPassword(_ password: String, _ repeatPassword: String) -> Bool{
-        return password == repeatPassword
+    /// Convert a NetworkError in string
+    /// - Parameter error: The type of error to convert
+    /// - Returns: String with error description
+    class func getMessageError(_ error: NetworkError) -> String{
+        switch error {
+        case .badURL:
+            return "Wrong url"
+        case .decodingError:
+            return "Deconding retuned data"
+        case .noData:
+            return "No data returned"
+        case .serverError(let errorMsg):
+            return errorMsg
+        }
     }
 }

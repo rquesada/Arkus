@@ -21,43 +21,51 @@ struct LoginScreen: View {
     }
     
     var body: some View {
-        VStack() {
-            Image("arkus")
-                .resizable()
-                .frame(width: 100, height: 100)
-                .padding(.top, 40)
-            TextField("First Name", text: $email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            Button("Login") {
-                loginVM.login(email, password)
+        ZStack {
+            
+            VStack() {
+                Image("arkus")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .padding(.top, 40)
+                TextField("First Name", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                Button("Login") {
+                    loginVM.login(email, password)
+                }
+                Spacer()
             }
-            Spacer()
+            .padding()
+            
+            .actionSheet(isPresented: $loginVM.showError) {
+                ActionSheet(title: Text("Error"),
+                            message: Text(loginVM.errorMessage),
+                            buttons: [.default(Text("OK"))])
+            }
+            .onAppear(){
+                //TODO: Remove after finish
+                #if DEBUG
+                email = "rquesada@arkusnexus.com"
+                password = "hola123"
+                #endif
+            }
+            .sheet(isPresented: $showSignup){
+                SignupScreen()
+            }
+            .navigationBarItems(trailing: Button("Signup"){
+                self.showSignup = true
+            })
+            .embedInNavigationView()
+            
+            //Show a Loading
+            if self.loginVM.loadingState == .loading{
+                LoadingView()
+            }
         }
-        .padding()
-        
-        .actionSheet(isPresented: $loginVM.showError) {
-            ActionSheet(title: Text("Error"),
-                        message: Text(loginVM.errorMessage),
-                        buttons: [.default(Text("OK"))])
-        }
-        .onAppear(){
-            //TODO: Remove after finish
-            #if DEBUG
-            email = "rquesada@arkusnexus.com"
-            password = "hola123"
-            #endif
-        }
-        .sheet(isPresented: $showSignup){
-            SignupScreen()
-        }
-        .navigationBarItems(trailing: Button("Signup"){
-            self.showSignup = true
-        })
-        .embedInNavigationView()
     }
 }
 
