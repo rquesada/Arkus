@@ -14,6 +14,8 @@ struct LoginScreen: View {
     @State private var email = ""
     @State private var password = ""
     @State private var showSignup: Bool = false
+    @State private var showHomeScreen = false
+
     
     init(){
         httpClient = HTTPClient()
@@ -35,23 +37,24 @@ struct LoginScreen: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 Button("Login") {
-                    loginVM.login(email, password)
+                    self.loginVM.login(email, password){ success in
+                        showHomeScreen = success
+                    }
                 }
                 Spacer()
             }
             .padding()
+            .onAppear(){
+                #if DEBUG
+                self.email = "rquesada@arkusnexus.com"
+                self.password = "hola123"
+                #endif
+            }
             
             .actionSheet(isPresented: $loginVM.showError) {
                 ActionSheet(title: Text("Error"),
                             message: Text(loginVM.errorMessage),
                             buttons: [.default(Text("OK"))])
-            }
-            .onAppear(){
-                //TODO: Remove after finish
-                #if DEBUG
-                email = "rquesada@arkusnexus.com"
-                password = "hola123"
-                #endif
             }
             .sheet(isPresented: $showSignup){
                 SignupScreen()
@@ -66,8 +69,12 @@ struct LoginScreen: View {
                 LoadingView()
             }
         }
+        .fullScreenCover(isPresented: $showHomeScreen, content: {
+            HomeScreen()
+        })
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
