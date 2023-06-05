@@ -24,26 +24,22 @@ class LoginViewModel: ViewModelBase {
             self.showError = true
             return
         }
-        
+
+        self.loadingState = .loading
         let loginRequest = LoginRequest(email: email, password: password)
-        
         self.httpClient.login(loginRequest){ result in
             switch result {
             case .success(let login):
                 DispatchQueue.main.async {
                     self.loginSuccess = true
                     self.login = login
-                    self.loadingState = .success
-                    
-                    //TODO: Remove it after presentation #1
-                    self.errorMessage = "Success Login!!!!!"
-                    self.showError = true
+                    self.loadingState = .none
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.errorMessage = self.getMessageError(error)
+                    self.errorMessage = LoginUtils.getMessageError(error)
                     self.showError = true
-                    self.loadingState = .failed
+                    self.loadingState = .none
                 }
             }
         }
@@ -64,22 +60,5 @@ class LoginViewModel: ViewModelBase {
             returnValue = false
         }
         return returnValue
-    }
-    
-    
-    /// Convert a NetworkError in string
-    /// - Parameter error: The type of error to convert
-    /// - Returns: String with error description
-    func getMessageError(_ error: NetworkError) -> String{
-        switch error {
-        case .badURL:
-            return "Wrong url"
-        case .decodingError:
-            return "Deconding retuned data"
-        case .noData:
-            return "No data returned"
-        case .serverError:
-            return "Incorrect email or password"
-        }
     }
 }

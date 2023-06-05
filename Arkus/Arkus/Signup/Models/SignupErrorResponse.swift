@@ -9,4 +9,8 @@ import Foundation
 
 struct SignupErrorResponse : Decodable {
     let errors:[SignupError]
+    
+    func errorMessages() -> String {
+        return errors.map { $0.msg }.joined(separator: "\n")
+    }
 }
