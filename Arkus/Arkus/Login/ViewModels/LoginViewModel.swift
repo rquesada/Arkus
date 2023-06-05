@@ -14,15 +14,16 @@ class LoginViewModel: ViewModelBase {
     @Published var login:LoginResponse?
     @Published var loginSuccess = false
     
+    
     /// Method to try to login a user
     /// - Parameters:
     ///   - username: Email of the user
     ///   - password: Password of the user
-    func login(_ email:String, _ password:String){
+    func login(_ email:String, _ password:String, completion:@escaping (Bool) -> Void){
         
         if !isValidLogin(email, password){
             self.showError = true
-            return
+            return completion(false)
         }
 
         self.loadingState = .loading
@@ -34,12 +35,14 @@ class LoginViewModel: ViewModelBase {
                     self.loginSuccess = true
                     self.login = login
                     self.loadingState = .none
+                    completion(true)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.errorMessage = LoginUtils.getMessageError(error)
                     self.showError = true
                     self.loadingState = .none
+                    completion(false)
                 }
             }
         }

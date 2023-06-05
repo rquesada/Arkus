@@ -29,6 +29,7 @@
 		76E3CC622A2A7F050096EE0B /* SignupErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC612A2A7F050096EE0B /* SignupErrorResponse.swift */; };
 		76E3CC642A2A7F490096EE0B /* SignupError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC632A2A7F490096EE0B /* SignupError.swift */; };
 		76E3CC6A2A2AADBA0096EE0B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC692A2AADBA0096EE0B /* LoadingView.swift */; };
+		76E3CC6D2A2E40EA0096EE0B /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC6C2A2E40EA0096EE0B /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		76E3CC612A2A7F050096EE0B /* SignupErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupErrorResponse.swift; sourceTree = "<group>"; };
 		76E3CC632A2A7F490096EE0B /* SignupError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupError.swift; sourceTree = "<group>"; };
 		76E3CC692A2AADBA0096EE0B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		76E3CC6C2A2E40EA0096EE0B /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		76C9FA3B2A27E6210010BCB0 /* Arkus */ = {
 			isa = PBXGroup;
 			children = (
+				76E3CC6E2A2E40EF0096EE0B /* Home */,
 				76E3CC652A2AAD8A0096EE0B /* Common */,
 				76E3CC542A2A4CCD0096EE0B /* Signup */,
 				76C9FA5A2A2813EE0010BCB0 /* Login */,
@@ -114,6 +117,7 @@
 			children = (
 				76C9FA3E2A27E6210010BCB0 /* LoginScreen.swift */,
 				76E3CC522A2A4BC80096EE0B /* SignupScreen.swift */,
+				76E3CC6C2A2E40EA0096EE0B /* HomeScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -225,6 +229,13 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		76E3CC6E2A2E40EF0096EE0B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +308,7 @@
 			files = (
 				76C9FA3F2A27E6210010BCB0 /* LoginScreen.swift in Sources */,
 				76E3CC642A2A7F490096EE0B /* SignupError.swift in Sources */,
+				76E3CC6D2A2E40EA0096EE0B /* HomeScreen.swift in Sources */,
 				76C9FA562A27F6BE0010BCB0 /* URL+Extensions.swift in Sources */,
 				76E3CC5C2A2A739C0096EE0B /* LoginUtils.swift in Sources */,
 				76C9FA3D2A27E6210010BCB0 /* ArkusApp.swift in Sources */,
