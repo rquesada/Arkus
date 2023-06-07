@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignupResponse : Decodable {
+struct SignupResponse : Codable {
     let success:Bool
     let user: User
 }

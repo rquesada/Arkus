@@ -12,7 +12,7 @@
 		76C9FA412A27E6220010BCB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C9FA402A27E6220010BCB0 /* Assets.xcassets */; };
 		76C9FA442A27E6220010BCB0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C9FA432A27E6220010BCB0 /* Preview Assets.xcassets */; };
 		76C9FA4D2A27EA4A0010BCB0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C9FA4C2A27EA4A0010BCB0 /* LoginViewModel.swift */; };
-		76C9FA502A27F30F0010BCB0 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C9FA4F2A27F30F0010BCB0 /* HTTPClient.swift */; };
+		76C9FA502A27F30F0010BCB0 /* SignupHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C9FA4F2A27F30F0010BCB0 /* SignupHTTPClient.swift */; };
 		76C9FA532A27F4190010BCB0 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C9FA522A27F4190010BCB0 /* LoginResponse.swift */; };
 		76C9FA562A27F6BE0010BCB0 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C9FA552A27F6BE0010BCB0 /* URL+Extensions.swift */; };
 		76C9FA592A2813610010BCB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C9FA582A2813610010BCB0 /* Constants.swift */; };
@@ -30,7 +30,24 @@
 		76E3CC642A2A7F490096EE0B /* SignupError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC632A2A7F490096EE0B /* SignupError.swift */; };
 		76E3CC6A2A2AADBA0096EE0B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC692A2AADBA0096EE0B /* LoadingView.swift */; };
 		76E3CC6D2A2E40EA0096EE0B /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC6C2A2E40EA0096EE0B /* HomeScreen.swift */; };
+		76E3CC7F2A2E8EB70096EE0B /* SignupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC7E2A2E8EB70096EE0B /* SignupViewModelTests.swift */; };
+		76E3CC822A2E8F480096EE0B /* SignupHTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC812A2E8F480096EE0B /* SignupHTTPClientTest.swift */; };
+		76E3CC852A2E8F840096EE0B /* MockSignupHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC842A2E8F840096EE0B /* MockSignupHTTPClient.swift */; };
+		76E3CC882A2E8FC20096EE0B /* SignupHTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC872A2E8FC20096EE0B /* SignupHTTPClientProtocol.swift */; };
+		76E3CC8B2A2E90420096EE0B /* LoginHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC8A2A2E90420096EE0B /* LoginHTTPClient.swift */; };
+		76E3CC8F2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC8E2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift */; };
+		76E3CC912A2ECBCB0096EE0B /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC902A2ECBCB0096EE0B /* MockURLProtocol.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76E3CC772A2E8E1D0096EE0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76C9FA312A27E6210010BCB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76C9FA382A27E6210010BCB0;
+			remoteInfo = Arkus;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		76C9FA392A27E6210010BCB0 /* Arkus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arkus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +56,7 @@
 		76C9FA402A27E6220010BCB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76C9FA432A27E6220010BCB0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76C9FA4C2A27EA4A0010BCB0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		76C9FA4F2A27F30F0010BCB0 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		76C9FA4F2A27F30F0010BCB0 /* SignupHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupHTTPClient.swift; sourceTree = "<group>"; };
 		76C9FA522A27F4190010BCB0 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		76C9FA552A27F6BE0010BCB0 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		76C9FA582A2813610010BCB0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -57,10 +74,26 @@
 		76E3CC632A2A7F490096EE0B /* SignupError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupError.swift; sourceTree = "<group>"; };
 		76E3CC692A2AADBA0096EE0B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		76E3CC6C2A2E40EA0096EE0B /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		76E3CC732A2E8E1D0096EE0B /* ArkusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArkusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76E3CC7E2A2E8EB70096EE0B /* SignupViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTests.swift; sourceTree = "<group>"; };
+		76E3CC812A2E8F480096EE0B /* SignupHTTPClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupHTTPClientTest.swift; sourceTree = "<group>"; };
+		76E3CC842A2E8F840096EE0B /* MockSignupHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignupHTTPClient.swift; sourceTree = "<group>"; };
+		76E3CC872A2E8FC20096EE0B /* SignupHTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupHTTPClientProtocol.swift; sourceTree = "<group>"; };
+		76E3CC8A2A2E90420096EE0B /* LoginHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHTTPClient.swift; sourceTree = "<group>"; };
+		76E3CC8E2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelProtocol.swift; sourceTree = "<group>"; };
+		76E3CC902A2ECBCB0096EE0B /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		76E3CCB32A311A5F0096EE0B /* Arkus.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Arkus.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		76C9FA362A27E6210010BCB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76E3CC702A2E8E1D0096EE0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				76C9FA3B2A27E6210010BCB0 /* Arkus */,
+				76E3CC742A2E8E1D0096EE0B /* ArkusTests */,
 				76C9FA3A2A27E6210010BCB0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				76C9FA392A27E6210010BCB0 /* Arkus.app */,
+				76E3CC732A2E8E1D0096EE0B /* ArkusTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,7 +168,8 @@
 		76C9FA4E2A27F2FE0010BCB0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				76C9FA4F2A27F30F0010BCB0 /* HTTPClient.swift */,
+				76C9FA4F2A27F30F0010BCB0 /* SignupHTTPClient.swift */,
+				76E3CC8A2A2E90420096EE0B /* LoginHTTPClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,6 +214,7 @@
 		76E3CC542A2A4CCD0096EE0B /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				76E3CC862A2E8FB30096EE0B /* Protocols */,
 				76E3CC562A2A4CEC0096EE0B /* Models */,
 				76E3CC552A2A4CDB0096EE0B /* ViewModels */,
 			);
@@ -236,6 +273,67 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		76E3CC742A2E8E1D0096EE0B /* ArkusTests */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CCB32A311A5F0096EE0B /* Arkus.xctestplan */,
+				76E3CCB22A3117FF0096EE0B /* Login */,
+				76E3CC7C2A2E8E4F0096EE0B /* Signup */,
+			);
+			path = ArkusTests;
+			sourceTree = "<group>";
+		};
+		76E3CC7C2A2E8E4F0096EE0B /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CC832A2E8F5C0096EE0B /* Mocks */,
+				76E3CC802A2E8F170096EE0B /* Network */,
+				76E3CC7D2A2E8E900096EE0B /* ViewModel */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		76E3CC7D2A2E8E900096EE0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CC7E2A2E8EB70096EE0B /* SignupViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		76E3CC802A2E8F170096EE0B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CC812A2E8F480096EE0B /* SignupHTTPClientTest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		76E3CC832A2E8F5C0096EE0B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CC842A2E8F840096EE0B /* MockSignupHTTPClient.swift */,
+				76E3CC902A2ECBCB0096EE0B /* MockURLProtocol.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		76E3CC862A2E8FB30096EE0B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CC872A2E8FC20096EE0B /* SignupHTTPClientProtocol.swift */,
+				76E3CC8E2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		76E3CCB22A3117FF0096EE0B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +354,24 @@
 			productReference = 76C9FA392A27E6210010BCB0 /* Arkus.app */;
 			productType = "com.apple.product-type.application";
 		};
+		76E3CC722A2E8E1D0096EE0B /* ArkusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76E3CC792A2E8E1D0096EE0B /* Build configuration list for PBXNativeTarget "ArkusTests" */;
+			buildPhases = (
+				76E3CC6F2A2E8E1D0096EE0B /* Sources */,
+				76E3CC702A2E8E1D0096EE0B /* Frameworks */,
+				76E3CC712A2E8E1D0096EE0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76E3CC782A2E8E1D0096EE0B /* PBXTargetDependency */,
+			);
+			name = ArkusTests;
+			productName = ArkusTests;
+			productReference = 76E3CC732A2E8E1D0096EE0B /* ArkusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -268,6 +384,10 @@
 				TargetAttributes = {
 					76C9FA382A27E6210010BCB0 = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					76E3CC722A2E8E1D0096EE0B = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 76C9FA382A27E6210010BCB0;
 					};
 				};
 			};
@@ -285,6 +405,7 @@
 			projectRoot = "";
 			targets = (
 				76C9FA382A27E6210010BCB0 /* Arkus */,
+				76E3CC722A2E8E1D0096EE0B /* ArkusTests */,
 			);
 		};
 /* End PBXProject section */
@@ -299,6 +420,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		76E3CC712A2E8E1D0096EE0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -306,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E3CC882A2E8FC20096EE0B /* SignupHTTPClientProtocol.swift in Sources */,
 				76C9FA3F2A27E6210010BCB0 /* LoginScreen.swift in Sources */,
 				76E3CC642A2A7F490096EE0B /* SignupError.swift in Sources */,
 				76E3CC6D2A2E40EA0096EE0B /* HomeScreen.swift in Sources */,
@@ -315,13 +444,15 @@
 				76E3CC5E2A2A7C650096EE0B /* SignupResponse.swift in Sources */,
 				76E3CC622A2A7F050096EE0B /* SignupErrorResponse.swift in Sources */,
 				76E3CC4D2A2955340096EE0B /* LoginRequest.swift in Sources */,
-				76C9FA502A27F30F0010BCB0 /* HTTPClient.swift in Sources */,
+				76C9FA502A27F30F0010BCB0 /* SignupHTTPClient.swift in Sources */,
+				76E3CC8F2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift in Sources */,
 				76E3CC602A2A7C9D0096EE0B /* User.swift in Sources */,
 				76C9FA592A2813610010BCB0 /* Constants.swift in Sources */,
 				76E3CC492A29302F0096EE0B /* ViewModelBase.swift in Sources */,
 				76E3CC532A2A4BC80096EE0B /* SignupScreen.swift in Sources */,
 				76E3CC6A2A2AADBA0096EE0B /* LoadingView.swift in Sources */,
 				76E3CC582A2A503D0096EE0B /* SignupRequest.swift in Sources */,
+				76E3CC8B2A2E90420096EE0B /* LoginHTTPClient.swift in Sources */,
 				76E3CC4F2A295DC40096EE0B /* ErrorResponse.swift in Sources */,
 				76E3CC5A2A2A544C0096EE0B /* SignupViewModel.swift in Sources */,
 				76C9FA4D2A27EA4A0010BCB0 /* LoginViewModel.swift in Sources */,
@@ -330,7 +461,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		76E3CC6F2A2E8E1D0096EE0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76E3CC852A2E8F840096EE0B /* MockSignupHTTPClient.swift in Sources */,
+				76E3CC7F2A2E8EB70096EE0B /* SignupViewModelTests.swift in Sources */,
+				76E3CC912A2ECBCB0096EE0B /* MockURLProtocol.swift in Sources */,
+				76E3CC822A2E8F480096EE0B /* SignupHTTPClientTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76E3CC782A2E8E1D0096EE0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 76C9FA382A27E6210010BCB0 /* Arkus */;
+			targetProxy = 76E3CC772A2E8E1D0096EE0B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		76C9FA452A27E6220010BCB0 /* Debug */ = {
@@ -505,6 +655,42 @@
 			};
 			name = Release;
 		};
+		76E3CC7A2A2E8E1D0096EE0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YBSCA9MEQ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rquesada.ArkusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arkus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Arkus";
+			};
+			name = Debug;
+		};
+		76E3CC7B2A2E8E1D0096EE0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YBSCA9MEQ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rquesada.ArkusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arkus.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Arkus";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -522,6 +708,15 @@
 			buildConfigurations = (
 				76C9FA482A27E6220010BCB0 /* Debug */,
 				76C9FA492A27E6220010BCB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76E3CC792A2E8E1D0096EE0B /* Build configuration list for PBXNativeTarget "ArkusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76E3CC7A2A2E8E1D0096EE0B /* Debug */,
+				76E3CC7B2A2E8E1D0096EE0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

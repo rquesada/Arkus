@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignupViewModel: ViewModelBase {
+class SignupViewModel: ViewModelBase, SignupViewModelProtocol {
     
     @Published var errorMessage = ""
     @Published var showError = false
@@ -17,8 +17,12 @@ class SignupViewModel: ViewModelBase {
     var role:String = "COMMON"
     var password:String = ""
     var repeatPassword:String = ""
+    var signupHTTPClient: SignupHTTPClientProtocol
     
-    /// Try to signup a new user 
+    init(_ signupHTTPClient: SignupHTTPClientProtocol){
+        self.signupHTTPClient = signupHTTPClient
+    }
+    
     func signup(completion: @escaping (Bool) -> Void){
         
         if !isValidSignup(){
@@ -28,7 +32,7 @@ class SignupViewModel: ViewModelBase {
         
         self.loadingState = .loading
         let signupRequest = SignupRequest(name: name, email: email, password: password, role: role)
-        httpClient.signup(signupRequest) { result in
+        signupHTTPClient.signup(signupRequest) { result in
             switch result {
             case .success( _):
                 DispatchQueue.main.async {
