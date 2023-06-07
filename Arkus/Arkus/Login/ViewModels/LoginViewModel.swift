@@ -7,16 +7,16 @@
 
 import Foundation
 
-class LoginViewModel: ViewModelBase {
+class LoginViewModel: ViewModelBase, LoginViewModelProtocol {
     
     @Published var errorMessage = ""
     @Published var showError = false
     @Published var login:LoginResponse?
     @Published var loginSuccess = false
     
-    var loginHTTPClient: LoginHTTPClient
+    var loginHTTPClient: LoginHTTPClientProtocol
     
-    init(_ loginHTTPClient: LoginHTTPClient){
+    init(_ loginHTTPClient: LoginHTTPClientProtocol){
         self.loginHTTPClient = loginHTTPClient
     }
     

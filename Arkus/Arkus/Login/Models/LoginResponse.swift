@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LoginResponse : Decodable {
+struct LoginResponse : Codable {
     let success:Bool
     let token: String
     let role: String

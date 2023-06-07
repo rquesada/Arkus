@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginHTTPClient{
+class LoginHTTPClient: LoginHTTPClientProtocol{
     
     private var urlSession: URLSession
     private var urlString: String
@@ -29,7 +29,7 @@ class LoginHTTPClient{
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONEncoder().encode(loginRequest)
-        URLSession.shared.dataTask(with: request){ data, response, error in
+        self.urlSession.dataTask(with: request){ data, response, error in
             guard let data = data, error == nil else {
                 return completion(.failure(.noData))
             }

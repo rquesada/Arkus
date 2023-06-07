@@ -37,6 +37,11 @@
 		76E3CC8B2A2E90420096EE0B /* LoginHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC8A2A2E90420096EE0B /* LoginHTTPClient.swift */; };
 		76E3CC8F2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC8E2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift */; };
 		76E3CC912A2ECBCB0096EE0B /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CC902A2ECBCB0096EE0B /* MockURLProtocol.swift */; };
+		76E3CCB62A311B2C0096EE0B /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CCB52A311B2C0096EE0B /* LoginViewModelTest.swift */; };
+		76E3CCB92A311B8C0096EE0B /* MockLoginHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CCB82A311B8C0096EE0B /* MockLoginHTTPClient.swift */; };
+		76E3CCBC2A311BC70096EE0B /* LoginHTTPClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CCBB2A311BC70096EE0B /* LoginHTTPClientProtocol.swift */; };
+		76E3CCBE2A311D260096EE0B /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CCBD2A311D260096EE0B /* LoginViewModelProtocol.swift */; };
+		76E3CCC12A3125C50096EE0B /* LoginHTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3CCC02A3125C50096EE0B /* LoginHTTPClientTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +88,11 @@
 		76E3CC8E2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelProtocol.swift; sourceTree = "<group>"; };
 		76E3CC902A2ECBCB0096EE0B /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		76E3CCB32A311A5F0096EE0B /* Arkus.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Arkus.xctestplan; sourceTree = "<group>"; };
+		76E3CCB52A311B2C0096EE0B /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
+		76E3CCB82A311B8C0096EE0B /* MockLoginHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginHTTPClient.swift; sourceTree = "<group>"; };
+		76E3CCBB2A311BC70096EE0B /* LoginHTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHTTPClientProtocol.swift; sourceTree = "<group>"; };
+		76E3CCBD2A311D260096EE0B /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
+		76E3CCC02A3125C50096EE0B /* LoginHTTPClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHTTPClientTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +215,7 @@
 		76C9FA5A2A2813EE0010BCB0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				76E3CCBA2A311BAC0096EE0B /* Protocols */,
 				76C9FA4B2A27EA210010BCB0 /* ViewModels */,
 				76C9FA512A27F3F00010BCB0 /* Models */,
 			);
@@ -330,8 +341,44 @@
 		76E3CCB22A3117FF0096EE0B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				76E3CCBF2A31259F0096EE0B /* Network */,
+				76E3CCB72A311B7F0096EE0B /* Mocks */,
+				76E3CCB42A311B0F0096EE0B /* ViewModel */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		76E3CCB42A311B0F0096EE0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CCB52A311B2C0096EE0B /* LoginViewModelTest.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		76E3CCB72A311B7F0096EE0B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CCB82A311B8C0096EE0B /* MockLoginHTTPClient.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		76E3CCBA2A311BAC0096EE0B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CCBB2A311BC70096EE0B /* LoginHTTPClientProtocol.swift */,
+				76E3CCBD2A311D260096EE0B /* LoginViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		76E3CCBF2A31259F0096EE0B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				76E3CCC02A3125C50096EE0B /* LoginHTTPClientTest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +484,7 @@
 				76E3CC882A2E8FC20096EE0B /* SignupHTTPClientProtocol.swift in Sources */,
 				76C9FA3F2A27E6210010BCB0 /* LoginScreen.swift in Sources */,
 				76E3CC642A2A7F490096EE0B /* SignupError.swift in Sources */,
+				76E3CCBC2A311BC70096EE0B /* LoginHTTPClientProtocol.swift in Sources */,
 				76E3CC6D2A2E40EA0096EE0B /* HomeScreen.swift in Sources */,
 				76C9FA562A27F6BE0010BCB0 /* URL+Extensions.swift in Sources */,
 				76E3CC5C2A2A739C0096EE0B /* LoginUtils.swift in Sources */,
@@ -451,6 +499,7 @@
 				76E3CC492A29302F0096EE0B /* ViewModelBase.swift in Sources */,
 				76E3CC532A2A4BC80096EE0B /* SignupScreen.swift in Sources */,
 				76E3CC6A2A2AADBA0096EE0B /* LoadingView.swift in Sources */,
+				76E3CCBE2A311D260096EE0B /* LoginViewModelProtocol.swift in Sources */,
 				76E3CC582A2A503D0096EE0B /* SignupRequest.swift in Sources */,
 				76E3CC8B2A2E90420096EE0B /* LoginHTTPClient.swift in Sources */,
 				76E3CC4F2A295DC40096EE0B /* ErrorResponse.swift in Sources */,
@@ -467,7 +516,10 @@
 			files = (
 				76E3CC852A2E8F840096EE0B /* MockSignupHTTPClient.swift in Sources */,
 				76E3CC7F2A2E8EB70096EE0B /* SignupViewModelTests.swift in Sources */,
+				76E3CCB92A311B8C0096EE0B /* MockLoginHTTPClient.swift in Sources */,
 				76E3CC912A2ECBCB0096EE0B /* MockURLProtocol.swift in Sources */,
+				76E3CCC12A3125C50096EE0B /* LoginHTTPClientTest.swift in Sources */,
+				76E3CCB62A311B2C0096EE0B /* LoginViewModelTest.swift in Sources */,
 				76E3CC822A2E8F480096EE0B /* SignupHTTPClientTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
