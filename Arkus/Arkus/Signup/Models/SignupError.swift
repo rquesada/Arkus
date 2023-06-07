@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignupError : Decodable {
+struct SignupError : Codable {
     let type:String
     let value: String
     let msg:String

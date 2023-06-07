@@ -14,10 +14,4 @@ enum LoadingState {
 
 class ViewModelBase: ObservableObject {
     @Published var loadingState: LoadingState = .none
-    
-    var httpClient: HTTPClient
-    
-    init(_ httpClient: HTTPClient){
-        self.httpClient = httpClient
-    }
 }

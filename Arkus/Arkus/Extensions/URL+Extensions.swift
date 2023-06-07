@@ -8,11 +8,11 @@
 import Foundation
 
 extension URL{
-    static func forLogin() -> URL?{
-        return URL(string: "\(Constants.baseURL)\(Constants.loginEndPoint)")
+    static func forLogin() -> String{
+        return "\(Constants.baseURL)\(Constants.loginEndPoint)"
     }
     
-    static func forSignup() -> URL?{
-        return URL(string: "\(Constants.baseURL)\(Constants.signupEndPoint)")
+    static func forSignup() -> String{
+        return "\(Constants.baseURL)\(Constants.signupEndPoint)"
     }
 }

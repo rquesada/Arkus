@@ -14,6 +14,12 @@ class LoginViewModel: ViewModelBase {
     @Published var login:LoginResponse?
     @Published var loginSuccess = false
     
+    var loginHTTPClient: LoginHTTPClient
+    
+    init(_ loginHTTPClient: LoginHTTPClient){
+        self.loginHTTPClient = loginHTTPClient
+    }
+    
     
     /// Method to try to login a user
     /// - Parameters:
@@ -28,7 +34,7 @@ class LoginViewModel: ViewModelBase {
 
         self.loadingState = .loading
         let loginRequest = LoginRequest(email: email, password: password)
-        self.httpClient.login(loginRequest){ result in
+        self.loginHTTPClient.login(loginRequest){ result in
             switch result {
             case .success(let login):
                 DispatchQueue.main.async {

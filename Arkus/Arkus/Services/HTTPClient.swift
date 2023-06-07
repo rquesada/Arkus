@@ -14,7 +14,7 @@ enum NetworkError: Error {
     case serverError(String)
 }
 
-class HTTPClient {
+class SignupHTTPClient {
     
     /// Send a LoginRequest to server
     /// - Parameters:

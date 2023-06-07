@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginScreen: View {
     
-    private var httpClient: HTTPClient
+    private var loginHTTPClient: LoginHTTPClient
     @ObservedObject private var loginVM:LoginViewModel
     @State private var email = ""
     @State private var password = ""
@@ -18,8 +18,8 @@ struct LoginScreen: View {
 
     
     init(){
-        httpClient = HTTPClient()
-        loginVM = LoginViewModel(httpClient)
+        loginHTTPClient = LoginHTTPClient(urlString: URL.forLogin())
+        loginVM = LoginViewModel(loginHTTPClient)
     }
     
     var body: some View {

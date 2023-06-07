@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SignupErrorResponse : Decodable {
+struct SignupErrorResponse : Codable {
     let errors:[SignupError]
     
     func errorMessages() -> String {

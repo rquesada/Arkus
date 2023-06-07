@@ -9,14 +9,14 @@ import SwiftUI
 
 struct SignupScreen: View {
     
-    private var httpClient: HTTPClient
+    private var httpClient: SignupHTTPClient
     @ObservedObject private var signupVM:SignupViewModel
     @Environment(\.presentationMode) var presentationMode
     
     let roles = ["COMMON","ADMIN"]
     
     init(){
-        httpClient = HTTPClient()
+        httpClient = SignupHTTPClient(urlString: URL.forSignup())
         signupVM = SignupViewModel(httpClient)
     }
     
