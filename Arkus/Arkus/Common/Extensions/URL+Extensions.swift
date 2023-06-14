@@ -15,4 +15,8 @@ extension URL{
     static func forSignup() -> String{
         return "\(Constants.baseURL)\(Constants.signupEndPoint)"
     }
+    
+    static func forUser(userId :String = "") -> String{
+        return "\(Constants.baseURL)\(Constants.userEndPoint)\(userId)"
+    }
 }
