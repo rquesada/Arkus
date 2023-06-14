@@ -36,10 +36,13 @@ class LoginViewModel: ViewModelBase, LoginViewModelProtocol {
         let loginRequest = LoginRequest(email: email, password: password)
         self.loginHTTPClient.login(loginRequest){ result in
             switch result {
-            case .success(let login):
+            case .success(let loginResponse):
                 DispatchQueue.main.async {
+                    if let login = loginResponse {
+                        UserCredentials.shared.setUserCredentials(login)
+                    }
                     self.loginSuccess = true
-                    self.login = login
+                    self.login = loginResponse
                     self.loadingState = .none
                     completion(true)
                 }
@@ -53,6 +56,7 @@ class LoginViewModel: ViewModelBase, LoginViewModelProtocol {
             }
         }
     }
+    
     
     /// Validate the login form
     /// - Parameters:

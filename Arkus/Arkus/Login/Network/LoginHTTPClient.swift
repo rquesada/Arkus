@@ -29,6 +29,7 @@ class LoginHTTPClient: LoginHTTPClientProtocol{
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONEncoder().encode(loginRequest)
+        
         self.urlSession.dataTask(with: request){ data, response, error in
             guard let data = data, error == nil else {
                 return completion(.failure(.noData))

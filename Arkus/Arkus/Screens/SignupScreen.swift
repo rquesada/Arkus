@@ -13,8 +13,6 @@ struct SignupScreen: View {
     @ObservedObject private var signupVM:SignupViewModel
     @Environment(\.presentationMode) var presentationMode
     
-    let roles = ["COMMON","ADMIN"]
-    
     init(){
         httpClient = SignupHTTPClient(urlString: URL.forSignup())
         signupVM = SignupViewModel(httpClient)
@@ -46,7 +44,7 @@ struct SignupScreen: View {
                         .padding(.trailing, 15)
                     
                     Picker("", selection: self.$signupVM.role) {
-                        ForEach(roles, id: \.self) { role in
+                        ForEach(Constants.roles, id: \.self) { role in
                             Text(role)
                         }
                     }

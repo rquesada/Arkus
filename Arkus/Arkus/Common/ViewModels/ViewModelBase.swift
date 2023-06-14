@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum LoadingState {
     case loading, none
 }
