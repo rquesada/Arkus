@@ -8,8 +8,8 @@
 import Foundation
 
 class UserListViewModel: ViewModelBase {
-    
-    @Published var users = [UserResponse]()
+    @Published var selectedUser:UserViewModel?
+    @Published var users = [UserViewModel]()
     @Published var usersListFull = false
     @Published var errorMessage = ""
     @Published var showError = false
@@ -29,7 +29,7 @@ class UserListViewModel: ViewModelBase {
                 DispatchQueue.main.async {
                     if let users = usersList?.users{
                         self.usersListFull = users.count < Constants.getUsersPageSize
-                        self.users.append(contentsOf: users)
+                        self.users.append(contentsOf: users.map(UserViewModel.init))
                     }
                     self.loadingState = .none
                 }

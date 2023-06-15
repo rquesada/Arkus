@@ -12,7 +12,7 @@ class HomeViewModel : ViewModelBase {
     var homeHTTPClient: HomeHTTPClientProtocol
     @Published var errorMessage = ""
     @Published var showError = false
-    @Published var user:UserResponse?
+    @Published var user:UserViewModel?
     
     init(_ homeHTTPClient: HomeHTTPClientProtocol){
         self.homeHTTPClient = homeHTTPClient
@@ -26,7 +26,7 @@ class HomeViewModel : ViewModelBase {
             case .success(let userReponse):
                 DispatchQueue.main.async {
                     if let user = userReponse{
-                        self.user = user
+                        self.user = UserViewModel(user: user)
                     }
                     self.loadingState = .none
                 }

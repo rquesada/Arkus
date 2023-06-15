@@ -82,7 +82,7 @@ struct HomeScreen: View {
         
         .fullScreenCover(isPresented: $showProfileScreen, content: {
             if let user = self.homeVM.user {
-                ProfileScreen(user: user,onDismiss: {
+                ProfileScreen(user,onDismiss: {
                     self.homeVM.getUserInfo(userId!, token: token!)
                 })
             }
