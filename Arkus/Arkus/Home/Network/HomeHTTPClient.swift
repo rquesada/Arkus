@@ -16,7 +16,7 @@ class HomeHTTPClient : HomeHTTPClientProtocol {
         self.urlSession = urlSession
     }
     
-    func getUserById(_ userID: String, _ token:String,completion: @escaping (Result <UserResponse?, NetworkError>) -> Void){
+    func getUserById(_ userID: String, _ token:String,completion: @escaping (Result <User?, NetworkError>) -> Void){
         
         guard let url = URL(string: self.urlString) else {
             return completion(.failure(.badURL))
@@ -30,7 +30,7 @@ class HomeHTTPClient : HomeHTTPClientProtocol {
                 return completion(.failure(.noData))
             }
             
-            guard let userResponse = try? JSONDecoder().decode(UserResponse.self, from: data) else {
+            guard let userResponse = try? JSONDecoder().decode(User.self, from: data) else {
                 return completion(.failure(.decodingError))
             }
             

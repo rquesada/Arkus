@@ -8,7 +8,5 @@
 import Foundation
 
 struct UserList : Decodable {
-    let users:[UserResponse]
-    
+    let users:[User]
 }
-

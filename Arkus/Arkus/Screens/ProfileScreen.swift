@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ProfileScreen: View {
     
-    let onDismiss: () -> Void
+    let onDismiss: (() -> Void)?
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var profileVM:ProfileViewModel
-    var user:UserResponse
+    var user:UserViewModel
     @State private var name: String = ""
     @State private var password: String = ""
     @State private var repeatPassword: String = ""
@@ -24,7 +24,7 @@ struct ProfileScreen: View {
     let userId = UserCredentials.shared.userId
     let token = UserCredentials.shared.token
     
-    init(user: UserResponse, onDismiss: @escaping () -> Void){
+    init(_ user: UserViewModel, onDismiss: (() -> Void)? = nil){
         self.onDismiss = onDismiss
         let profileHTTPClient = ProfileHTTPClient(urlString: URL.forUser(userId: userId!))
         self.user = user
@@ -85,7 +85,9 @@ struct ProfileScreen: View {
                         let userRequest = UpdateUserRequest(name: name, email: self.user.email, password: password, role: self.user.role, english_level: englishLevel, tech_skills: techSkills, cv_link: cvLink)
                         self.profileVM.updateUser(userRequest, self.userId!, self.token!){ success in
                             if success {
-                                self.onDismiss()
+                                if let onDismiss = onDismiss {
+                                    onDismiss()
+                                }
                                 presentationMode.wrappedValue.dismiss()
                             }
                         }

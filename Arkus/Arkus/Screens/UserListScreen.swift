@@ -11,6 +11,7 @@ struct UserListScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var userListVM:UserListViewModel
+    @State var showProfile = false
     
     init(){
         let httpClient = UserListHTTPClient(urlString: URL.forUser())
@@ -22,13 +23,21 @@ struct UserListScreen: View {
     }
     
     var body: some View {
-        
-        VStack{
-            List{
-                ForEach(self.userListVM.users) { user in
-                    Text(user.name)
-                    
+        ZStack{
+            List(self.userListVM.users){ user in
+                Button(action: {
+                    self.userListVM.selectedUser = user
+                    print("\(user.name)")
+                    self.showProfile = true
+                }){
+                    HStack {
+                        Text(user.name)
+                        Image(systemName: "chevron.right")
+                    }
                 }
+            }
+            if self.userListVM.loadingState == .loading{
+                LoadingView()
             }
         }
         .navigationBarItems(leading: Button("Back"){
@@ -36,6 +45,10 @@ struct UserListScreen: View {
         })
         .navigationBarTitle("Users")
         .embedInNavigationView()
+        
+        .fullScreenCover(isPresented: $showProfile, content: {
+            ProfileScreen(self.userListVM.selectedUser!)
+        })
     }
 }
 
