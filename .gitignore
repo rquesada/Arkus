@@ -13,6 +13,7 @@ xcuserdata/
 build/
 DerivedData/
 *.DS_Store
+Arkus/.DS_Store
 
 *.moved-aside
 *.pbxuser
