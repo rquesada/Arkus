@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "4E52081B-CB9E-4D2B-939B-740A8D98BEB6",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Arkus.xcodeproj",
+      "identifier" : "76C9FA382A27E6210010BCB0",
+      "name" : "Arkus"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Arkus.xcodeproj",
+        "identifier" : "76E3CC722A2E8E1D0096EE0B",
+        "name" : "ArkusTests"
+      }
+    }
+  ],
+  "version" : 1
+}
