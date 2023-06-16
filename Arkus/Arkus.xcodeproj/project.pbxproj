@@ -74,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		7622E1902A3A7FB200B0267E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		76486FAC2A3D0DA100A9510E /* ArkusTestplan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = ArkusTestplan.xctestplan; path = ArkusTests/ArkusTestplan.xctestplan; sourceTree = "<group>"; };
 		7699151F2A3376FD0059617A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		769915212A3377B50059617A /* ProfileHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHTTPClient.swift; sourceTree = "<group>"; };
 		769915232A3377F10059617A /* ProfileHTTPClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHTTPClientProtocol.swift; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 		76C9FA302A27E6210010BCB0 = {
 			isa = PBXGroup;
 			children = (
+				76486FAC2A3D0DA100A9510E /* ArkusTestplan.xctestplan */,
 				76C9FA3B2A27E6210010BCB0 /* Arkus */,
 				76E3CC742A2E8E1D0096EE0B /* ArkusTests */,
 				76C9FA3A2A27E6210010BCB0 /* Products */,

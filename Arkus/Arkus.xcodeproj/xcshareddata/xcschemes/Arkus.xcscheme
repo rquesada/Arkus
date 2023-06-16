@@ -29,23 +29,10 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Arkus.xctestplan"
+            reference = "container:ArkusTests/ArkusTestplan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76E3CC722A2E8E1D0096EE0B"
-               BuildableName = "ArkusTests.xctest"
-               BlueprintName = "ArkusTests"
-               ReferencedContainer = "container:Arkus.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
