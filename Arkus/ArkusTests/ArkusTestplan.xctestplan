@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "60D254B6-8B80-4A5B-A144-F2F3FDFE5F5B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    },
+    {
+      "id" : "F799D608-63A0-417E-B7B2-0FB1CC6E72E8",
+      "name" : "Configuration 2",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Arkus.xcodeproj",
+      "identifier" : "76C9FA382A27E6210010BCB0",
+      "name" : "Arkus"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Arkus.xcodeproj",
+        "identifier" : "76E3CC722A2E8E1D0096EE0B",
+        "name" : "ArkusTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -35,7 +35,19 @@ final class SignupHTTPClientTest: XCTestCase {
         
         //Arrange
         let expectation = self.expectation(description: "Signup Web Service Response Expectation")
-        let user = User(name: self.signupRequest.name, email: self.signupRequest.email, role: self.signupRequest.role, status: true, uid: UUID().uuidString)
+        
+        let user =  User(id: UUID().uuidString,
+                         name: self.signupRequest.name,
+                         email: self.signupRequest.email,
+                         role: self.signupRequest.role,
+                         status: true,
+                         cvLink: nil,
+                         englishLevel: nil,
+                         techSkills: nil,
+                         updatedAt: nil,
+                         createdAt: nil,
+                         team: nil)
+        
         let signupResponse = SignupResponse(success: true, user: user)
         MockURLProtocol.stubResponseData = try? JSONEncoder().encode(signupResponse)
         

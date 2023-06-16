@@ -19,11 +19,18 @@ class MockSignupHTTPClient : SignupHTTPClientProtocol {
         if shouldReturnError {
             return completion(.failure(.serverError("Error in Signup process")))
         }else{
-            let user = User(name: signupRequest.name,
-                            email: signupRequest.name,
+            
+            let user = User(id: UUID().uuidString,
+                            name: signupRequest.name,
+                            email: signupRequest.email,
                             role: signupRequest.role,
                             status: true,
-                            uid: UUID().uuidString)
+                            cvLink: nil,
+                            englishLevel: nil,
+                            techSkills: nil,
+                            updatedAt: nil,
+                            createdAt: nil,
+                            team: nil)
             let signupResponse = SignupResponse(success: true, user: user)
             completion(.success(signupResponse))
         }
