@@ -9,10 +9,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Set up Swift
-        uses: YOCKOW/Action-setup-swift@v1
-        with:
-          swift-version: '5.8'
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_14.3.1.app && /usr/bin/xcodebuild -version
       - name: Build and Test
         working-directory: Arkus/
         run: |
