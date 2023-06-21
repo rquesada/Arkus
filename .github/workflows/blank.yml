@@ -2,23 +2,19 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   test:
     name: Run Tests
     runs-on: macOS-latest
-    
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      
       - name: Set up Swift
         uses: YOCKOW/Action-setup-swift@v1
         with:
           swift-version: '5.4'
-
       - name: Build and Test
         working-directory: Arkus/
         run: |
           swift build
-          swift test --enable-code-coverage
+          xcodebuild test -project Arkus.xcodeproj -scheme Arkus -sdk iphonesimulator16.4 -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4'
