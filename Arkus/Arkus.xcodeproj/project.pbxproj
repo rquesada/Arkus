@@ -60,6 +60,7 @@
 		76EA68F02A326AE700CB089B /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA68EF2A326AE700CB089B /* UserCredentials.swift */; };
 		76EA68F32A32805400CB089B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA68F22A32805400CB089B /* ProfileScreen.swift */; };
 		76EA68F62A3283C200CB089B /* ActionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA68F52A3283C200CB089B /* ActionsScreen.swift */; };
+		76F137E02A463F3200BE2B74 /* LoginScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F137DF2A463F3200BE2B74 /* LoginScreenTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		76EA68EF2A326AE700CB089B /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		76EA68F22A32805400CB089B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		76EA68F52A3283C200CB089B /* ActionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsScreen.swift; sourceTree = "<group>"; };
+		76F137DF2A463F3200BE2B74 /* LoginScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -465,6 +467,7 @@
 		76E3CCB22A3117FF0096EE0B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				76F137DE2A463F1600BE2B74 /* Screen */,
 				76E3CCBF2A31259F0096EE0B /* Network */,
 				76E3CCB72A311B7F0096EE0B /* Mocks */,
 				76E3CCB42A311B0F0096EE0B /* ViewModel */,
@@ -571,6 +574,14 @@
 				76AD51722A3A1061007066B9 /* Models */,
 			);
 			path = Actions;
+			sourceTree = "<group>";
+		};
+		76F137DE2A463F1600BE2B74 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				76F137DF2A463F3200BE2B74 /* LoginScreenTest.swift */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -725,6 +736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E3CC852A2E8F840096EE0B /* MockSignupHTTPClient.swift in Sources */,
+				76F137E02A463F3200BE2B74 /* LoginScreenTest.swift in Sources */,
 				76E3CC7F2A2E8EB70096EE0B /* SignupViewModelTests.swift in Sources */,
 				76E3CCB92A311B8C0096EE0B /* MockLoginHTTPClient.swift in Sources */,
 				76E3CC912A2ECBCB0096EE0B /* MockURLProtocol.swift in Sources */,

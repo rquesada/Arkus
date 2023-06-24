@@ -29,7 +29,7 @@ final class SignupViewModelTests: XCTestCase {
         //Arrange
         sut.name = "Roy"
         sut.email = "roy.quesada@arkusnexus.com"
-        sut.role = "COMMON"
+        sut.role = Roles.common.rawValue
         sut.password = "123456789"
         sut.repeatPassword = "123456789"
         
@@ -41,7 +41,7 @@ final class SignupViewModelTests: XCTestCase {
         //Arrange
         sut.name = "Roy"
         sut.email = "roy.quesada@arkusnexus.com"
-        sut.role = "COMMON"
+        sut.role = Roles.common.rawValue
         sut.password = "1234567"
         sut.repeatPassword = "123456789"
         
@@ -53,7 +53,7 @@ final class SignupViewModelTests: XCTestCase {
         //Arrange
         sut.name = "Roy"
         sut.email = "roy.quesada@arkusnexus.com"
-        sut.role = "COMMON"
+        sut.role = Roles.common.rawValue
         sut.password = "hola123"
         sut.repeatPassword = "hola123"
         mockSignupHTTPClient.shouldReturnError = false
@@ -70,7 +70,7 @@ final class SignupViewModelTests: XCTestCase {
         //Arrange
         sut.name = "Roy"
         sut.email = "roy.quesada@arkusnexus.com"
-        sut.role = "COMMON"
+        sut.role = Roles.common.rawValue
         sut.password = "hola123"
         sut.repeatPassword = "hola123"
         mockSignupHTTPClient.shouldReturnError = false
@@ -88,7 +88,7 @@ final class SignupViewModelTests: XCTestCase {
         //Arrange
         sut.name = "Roy"
         sut.email = "roy.quesada@arkusnexus.com"
-        sut.role = "COMMON"
+        sut.role = Roles.common.rawValue
         sut.password = "hola123"
         sut.repeatPassword = "hola1234"
         mockSignupHTTPClient.shouldReturnError = true

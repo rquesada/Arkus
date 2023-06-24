@@ -20,7 +20,7 @@ struct HomeScreen: View {
     init(){
         let homeHTTPClient = HomeHTTPClient(urlString: URL.forUser(userId: userId!))
         homeVM = HomeViewModel(homeHTTPClient)
-        isCommonUser = UserCredentials.shared.role == "COMMON"
+        isCommonUser = UserCredentials.shared.role == Roles.common.rawValue
         self.homeVM.getUserInfo(userId!, token: token!)
     }
     

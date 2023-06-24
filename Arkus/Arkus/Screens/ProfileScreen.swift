@@ -39,7 +39,10 @@ struct ProfileScreen: View {
                     TextField("Name", text: $name)
                         .disableAutocorrection(true)
                     Text("Email: \(self.user.email)")
-                    Text("Role: \(self.user.role)")
+                    
+                    if UserCredentials.shared.role == Roles.common.rawValue {
+                        Text("Role: \(self.user.role)")
+                    }
                 }
                 
                 Section(header: Text("Skills")) {

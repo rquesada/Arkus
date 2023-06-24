@@ -19,7 +19,7 @@ class MockLoginHTTPClient: LoginHTTPClientProtocol {
         if shouldReturnError {
             return completion(.failure(.serverError("Error in Signup process")))
         }else{
-            let loginResponse = LoginResponse(success: true, token: UUID().uuidString, role: "COMMON", uid: UUID().uuidString)
+            let loginResponse = LoginResponse(success: true, token: UUID().uuidString, role: Roles.common.rawValue, uid: UUID().uuidString)
             return completion(.success(loginResponse))
         }
     }
