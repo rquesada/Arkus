@@ -40,6 +40,11 @@ struct UserListScreen: View {
                 LoadingView()
             }
         }
+        .actionSheet(isPresented: $userListVM.showError) {
+            ActionSheet(title: Text("Error"),
+                        message: Text(userListVM.errorMessage),
+                        buttons: [.default(Text("OK"))])
+        }
         .navigationBarItems(leading: Button("Back"){
             presentationMode.wrappedValue.dismiss()
         })

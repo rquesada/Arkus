@@ -15,12 +15,10 @@ struct HomeScreen: View {
     @State private var showProfileScreen = false
     let userId = UserCredentials.shared.userId
     let homeHTTPClient = HomeHTTPClient(urlString: URL.forUser(userId: UserCredentials.shared.userId!))
-    var isCommonUser = true
     let token = UserCredentials.shared.token
     init(){
         let homeHTTPClient = HomeHTTPClient(urlString: URL.forUser(userId: userId!))
         homeVM = HomeViewModel(homeHTTPClient)
-        isCommonUser = UserCredentials.shared.role == Roles.common.rawValue
         self.homeVM.getUserInfo(userId!, token: token!)
     }
     
@@ -57,7 +55,7 @@ struct HomeScreen: View {
                     }
                     .padding()
                     
-                    if !self.isCommonUser{
+                    if UserCredentials.shared.isAdmin{
                         Button("More Actions"){
                             showActionsScreen = true
                         }

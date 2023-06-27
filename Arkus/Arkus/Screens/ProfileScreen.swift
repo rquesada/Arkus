@@ -13,14 +13,21 @@ struct ProfileScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var profileVM:ProfileViewModel
     var user:UserViewModel
+    
+    // Temporal information
+    @State private var role:String = ""
     @State private var name: String = ""
     @State private var password: String = ""
     @State private var repeatPassword: String = ""
     @State private var englishLevel: Int = 1
     @State private var techSkills: String = ""
     @State private var cvLink: String = ""
+    
+    //For UI
     @State private var isPasswordVisible = false
     @State private var isRepeatPasswordVisible = false
+    
+    // To save changes
     let userId = UserCredentials.shared.userId
     let token = UserCredentials.shared.token
     
@@ -35,67 +42,33 @@ struct ProfileScreen: View {
         
         ZStack {
             Form {
-                Section(header: Text("Personal Information")) {
-                    TextField("Name", text: $name)
-                        .disableAutocorrection(true)
-                    Text("Email: \(self.user.email)")
-                    
-                    if UserCredentials.shared.role == Roles.common.rawValue {
-                        Text("Role: \(self.user.role)")
-                    }
-                }
                 
-                Section(header: Text("Skills")) {
-                    Stepper("English Level: \(englishLevel)", value: $englishLevel, in: 0...5)
-                    TextField("Tech Skills", text: $techSkills)
-                    TextField("CV Link", text: $cvLink)
-                }
+                PersonalInformationSection(user: user,
+                                           name: $name,
+                                           role: $role)
                 
-                Section(header: Text("Password")) {
-                    
-                    /* Password */
-                    HStack(){
-                        if isPasswordVisible {
-                            TextField("Password", text: $password)
-                        }else{
-                            SecureField("Password", text: $password)
-                        }
-                        Button(action: {
-                            isPasswordVisible.toggle()
-                        }) {
-                            Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
-                        }
-                    }
-                    
-                    /* Repeat Password */
-                    HStack(){
-                        if isRepeatPasswordVisible {
-                            TextField("Repeat Password", text: $repeatPassword)
-                        }else {
-                            SecureField("Repeat Password", text: $repeatPassword)
-                        }
-                        Button(action: {
-                            isRepeatPasswordVisible.toggle()
-                        }) {
-                            Image(systemName: isRepeatPasswordVisible ? "eye.slash.fill" : "eye.fill")
-                        }
-                    }
-                    
-                }
+                SkillsSection(englishLevel: $englishLevel,
+                              techSkills: $techSkills,
+                              cvLink: $cvLink)
                 
-                Section {
-                    Button("Save Changes") {
-                        let userRequest = UpdateUserRequest(name: name, email: self.user.email, password: password, role: self.user.role, english_level: englishLevel, tech_skills: techSkills, cv_link: cvLink)
-                        self.profileVM.updateUser(userRequest, self.userId!, self.token!){ success in
-                            if success {
-                                if let onDismiss = onDismiss {
-                                    onDismiss()
-                                }
-                                presentationMode.wrappedValue.dismiss()
-                            }
-                        }
-                    }
-                }
+                PasswordSection(password: $password,
+                                repeatPassword: $repeatPassword,
+                                isPasswordVisible: $isPasswordVisible,
+                                isRepeatPasswordVisible: $isRepeatPasswordVisible)
+                
+                
+                SaveChangesSection(user: user,
+                                   name: $name,
+                                   password: $password,
+                                   role: $role,
+                                   englishLevel: $englishLevel,
+                                   techSkills: $techSkills,
+                                   cvLink: $cvLink,
+                                   onDismiss: onDismiss,
+                                   userId: userId!,
+                                   token: token!,
+                                   profileVM: profileVM)
+                
             }
             //Show a Loading
             if self.profileVM.loadingState == .loading{
@@ -114,5 +87,124 @@ struct ProfileScreen: View {
             presentationMode.wrappedValue.dismiss()
         })
         .embedInNavigationView()
+    }
+}
+
+struct PersonalInformationSection: View {
+    
+    let user: UserViewModel
+    @Binding var name:String
+    @Binding var role:String
+    
+    var body: some View{
+        Section(header: Text("Personal Information")) {
+            TextField("Name", text: $name)
+                .disableAutocorrection(true)
+            Text("Email: \(self.user.email)")
+            
+            // if current user is common or user to edit is SuperAdmin, the changes are not allow
+            if UserCredentials.shared.role == .common ||
+                user.role == Roles.superAdmin.rawValue {
+                Text("Role: \(self.user.role)")
+            }else{
+                Picker("", selection: self.$role    ) {
+                    ForEach(Constants.roles, id: \.self) { role in
+                        Text(role).tag(role)
+                    }
+                }
+                .pickerStyle(WheelPickerStyle()) // or .pickerStyle(MenuPickerStyle())
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                .padding(.bottom, 15)
+            }
+        }
+    }
+}
+
+struct SkillsSection: View {
+    @Binding var englishLevel: Int
+    @Binding var techSkills: String
+    @Binding var cvLink: String
+    
+    var body: some View {
+        Section(header: Text("Skills")){
+            Stepper("English Level: \(englishLevel)", value: $englishLevel, in: 0...5)
+            TextField("Tech Skills", text: $techSkills)
+            TextField("CV Link", text: $cvLink)
+        }
+    }
+}
+
+struct PasswordSection: View {
+    @Binding var password:String
+    @Binding var repeatPassword: String
+    @Binding var isPasswordVisible: Bool
+    @Binding var isRepeatPasswordVisible : Bool
+    
+    var body: some View {
+        Section(header: Text("Password")) {
+            
+            /* Password */
+            HStack(){
+                if isPasswordVisible {
+                    TextField("Password", text: $password)
+                }else{
+                    SecureField("Password", text: $password)
+                }
+                Button(action: {
+                    isPasswordVisible.toggle()
+                }) {
+                    Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                }
+            }
+            
+            /* Repeat Password */
+            HStack(){
+                if isRepeatPasswordVisible {
+                    TextField("Repeat Password", text: $repeatPassword)
+                }else {
+                    SecureField("Repeat Password", text: $repeatPassword)
+                }
+                Button(action: {
+                    isRepeatPasswordVisible.toggle()
+                }) {
+                    Image(systemName: isRepeatPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                }
+            }
+            
+        }
+    }
+}
+
+struct SaveChangesSection: View {
+    let user: UserViewModel
+    @Binding var name: String
+    @Binding var password: String
+    @Binding var role: String
+    @Binding var englishLevel: Int
+    @Binding var techSkills: String
+    @Binding var cvLink: String
+    let onDismiss: (() -> Void)?
+    let userId: String
+    let token: String
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var profileVM: ProfileViewModel
+    
+    var body: some View {
+        Section {
+            Button(action: {
+                let userRequest = UpdateUserRequest(name: name, email: user.email, password: password, role: role, english_level: englishLevel, tech_skills: techSkills, cv_link: cvLink)
+                profileVM.updateUser(userRequest, userId, token) { success in
+                    if success {
+                        if let onDismiss = onDismiss {
+                            onDismiss()
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }) {
+                Text("Save Changes")
+            }
+        }
     }
 }
