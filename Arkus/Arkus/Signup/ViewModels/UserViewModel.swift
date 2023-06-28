@@ -8,7 +8,7 @@
 import Foundation
 
 class UserViewModel: ViewModelBase, Identifiable {
-    private let user:User
+    private var user:User
     
     
     init(user: User) {

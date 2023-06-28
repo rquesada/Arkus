@@ -36,7 +36,10 @@ class UserListHTTPClient {
             }
             
             guard let userList = try? JSONDecoder().decode(UserList.self, from: data) else {
-                return completion(.failure(.decodingError))
+                guard let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) else {
+                    return completion(.failure(.decodingError))
+                }
+                return completion(.failure(.serverError(errorResponse.msg)))
             }
             
             completion(.success(userList))

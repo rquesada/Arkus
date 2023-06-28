@@ -60,6 +60,8 @@
 		76EA68F02A326AE700CB089B /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA68EF2A326AE700CB089B /* UserCredentials.swift */; };
 		76EA68F32A32805400CB089B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA68F22A32805400CB089B /* ProfileScreen.swift */; };
 		76EA68F62A3283C200CB089B /* ActionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA68F52A3283C200CB089B /* ActionsScreen.swift */; };
+		76EEE4882A4B916F00F19D62 /* UpdateUserWithPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EEE4872A4B916F00F19D62 /* UpdateUserWithPasswordRequest.swift */; };
+		76EEE48A2A4C965E00F19D62 /* DeleteUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EEE4892A4C965E00F19D62 /* DeleteUserResponse.swift */; };
 		76F137E02A463F3200BE2B74 /* LoginScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F137DF2A463F3200BE2B74 /* LoginScreenTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +133,8 @@
 		76EA68EF2A326AE700CB089B /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		76EA68F22A32805400CB089B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		76EA68F52A3283C200CB089B /* ActionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsScreen.swift; sourceTree = "<group>"; };
+		76EEE4872A4B916F00F19D62 /* UpdateUserWithPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserWithPasswordRequest.swift; sourceTree = "<group>"; };
+		76EEE4892A4C965E00F19D62 /* DeleteUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserResponse.swift; sourceTree = "<group>"; };
 		76F137DF2A463F3200BE2B74 /* LoginScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +177,8 @@
 			children = (
 				769915252A3378890059617A /* UpdateUserRequest.swift */,
 				769915272A33835E0059617A /* UpdateUserResponse.swift */,
+				76EEE4872A4B916F00F19D62 /* UpdateUserWithPasswordRequest.swift */,
+				76EEE4892A4C965E00F19D62 /* DeleteUserResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -705,6 +711,7 @@
 				76E3CCC62A314E140096EE0B /* HomeHTTPClient.swift in Sources */,
 				76E3CC4D2A2955340096EE0B /* LoginRequest.swift in Sources */,
 				76C9FA502A27F30F0010BCB0 /* SignupHTTPClient.swift in Sources */,
+				76EEE4882A4B916F00F19D62 /* UpdateUserWithPasswordRequest.swift in Sources */,
 				76E3CC8F2A2EAD3C0096EE0B /* SignupViewModelProtocol.swift in Sources */,
 				769915282A33835E0059617A /* UpdateUserResponse.swift in Sources */,
 				76E3CCC92A314E4A0096EE0B /* HomeHTTPClientProtocol.swift in Sources */,
@@ -725,6 +732,7 @@
 				76AD517D2A3A1DC9007066B9 /* UserListViewModel.swift in Sources */,
 				76C9FA532A27F4190010BCB0 /* LoginResponse.swift in Sources */,
 				76AD51742A3A109B007066B9 /* MoreActionsEnum.swift in Sources */,
+				76EEE48A2A4C965E00F19D62 /* DeleteUserResponse.swift in Sources */,
 				76EA68F32A32805400CB089B /* ProfileScreen.swift in Sources */,
 				7622E1912A3A7FB200B0267E /* UserViewModel.swift in Sources */,
 				769915222A3377B50059617A /* ProfileHTTPClient.swift in Sources */,

@@ -31,7 +31,10 @@ class HomeHTTPClient : HomeHTTPClientProtocol {
             }
             
             guard let userResponse = try? JSONDecoder().decode(User.self, from: data) else {
-                return completion(.failure(.decodingError))
+                guard let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) else {
+                    return completion(.failure(.decodingError))
+                }
+                return completion(.failure(.serverError(errorResponse.msg)))
             }
             
             completion(.success(userResponse))
