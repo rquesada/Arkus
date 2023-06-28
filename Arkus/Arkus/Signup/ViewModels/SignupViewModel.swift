@@ -14,7 +14,7 @@ class SignupViewModel: ViewModelBase, SignupViewModelProtocol {
     
     var name:String = ""
     var email:String = ""
-    var role:String = "COMMON"
+    var role:String = Roles.common.rawValue
     var password:String = ""
     var repeatPassword:String = ""
     var signupHTTPClient: SignupHTTPClientProtocol

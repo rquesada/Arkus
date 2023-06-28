@@ -15,12 +15,10 @@ struct HomeScreen: View {
     @State private var showProfileScreen = false
     let userId = UserCredentials.shared.userId
     let homeHTTPClient = HomeHTTPClient(urlString: URL.forUser(userId: UserCredentials.shared.userId!))
-    var isCommonUser = true
     let token = UserCredentials.shared.token
     init(){
         let homeHTTPClient = HomeHTTPClient(urlString: URL.forUser(userId: userId!))
         homeVM = HomeViewModel(homeHTTPClient)
-        isCommonUser = UserCredentials.shared.role == "COMMON"
         self.homeVM.getUserInfo(userId!, token: token!)
     }
     
@@ -49,15 +47,13 @@ struct HomeScreen: View {
                     .padding(.trailing, 15)
                     .padding(.bottom, 5)
                 
-                
-                
                 HStack{
                     Button("Edit Profile"){
                         showProfileScreen = true
                     }
                     .padding()
                     
-                    if !self.isCommonUser{
+                    if UserCredentials.shared.isAdmin{
                         Button("More Actions"){
                             showActionsScreen = true
                         }
@@ -67,7 +63,18 @@ struct HomeScreen: View {
                 }.padding()
                 Spacer()
                 
-            }.navigationBarItems(trailing: Button("Logout"){
+            }
+            .actionSheet(isPresented: $homeVM.showError) {
+                ActionSheet(title: Text("Error"),
+                            message: Text(homeVM.errorMessage),
+                            buttons: [.default(Text("OK"), action: {
+                    
+                    // If error, logout
+                    //presentationMode.wrappedValue.dismiss()
+                    
+                })])
+            }
+            .navigationBarItems(trailing: Button("Logout"){
                 presentationMode.wrappedValue.dismiss()
             })
             .navigationBarTitle("Welcome")
@@ -85,6 +92,11 @@ struct HomeScreen: View {
                 ProfileScreen(user,onDismiss: {
                     self.homeVM.getUserInfo(userId!, token: token!)
                 })
+            }else{
+                EmptyView() 
+                    .onAppear {
+                        self.showProfileScreen = false
+                    }
             }
         })
     }

@@ -13,7 +13,7 @@ struct UpdateUserResponse: Codable {
     let role:String
     let status:Bool
     let cv_link:String
-    let english_level:String
+    let english_level:Int
     let tech_skills:String
     let updatedAt:String
     let uid:String

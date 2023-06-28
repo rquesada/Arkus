@@ -12,7 +12,13 @@ class UserCredentials{
 
     var token: String?
     var userId: String?
-    var role: String?
+    var role: Roles = .common
+    
+    var isAdmin: Bool{
+        get {
+            return role != .common
+        }
+    }
     
     private init() {}
     
@@ -20,7 +26,7 @@ class UserCredentials{
         if login.success {
             self.token = login.token
             self.userId = login.uid
-            self.role = login.role
+            self.role =  Roles(rawValue: login.role) ?? .common
         }
         
     }

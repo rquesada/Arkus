@@ -33,7 +33,7 @@ final class LoginHTTPClientTest: XCTestCase {
     func testLoginHTTPClient_WhenGivenSuccessRequest_ShouldReturnSuccess(){
         let loginRequest = LoginRequest(email: "rquesada@arkusnexus.com", password: "hola123")
         let expectation = self.expectation(description: "Login Web Service Response Expectation")
-        let loginResponse = LoginResponse(success: true, token: UUID().uuidString, role: "COMMON", uid: UUID().uuidString)
+        let loginResponse = LoginResponse(success: true, token: UUID().uuidString, role: Roles.common.rawValue, uid: UUID().uuidString)
         MockURLProtocol.stubResponseData = try? JSONEncoder().encode(loginResponse)
         
         sut.login(loginRequest){ result in
