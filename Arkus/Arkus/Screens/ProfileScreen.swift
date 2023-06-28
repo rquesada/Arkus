@@ -27,13 +27,15 @@ struct ProfileScreen: View {
     @State private var isPasswordVisible = false
     @State private var isRepeatPasswordVisible = false
     
+    // For Delete user
+    @State private var showConfirmDelete = false
+    
     // To save changes
-    let userId = UserCredentials.shared.userId
     let token = UserCredentials.shared.token
     
     init(_ user: UserViewModel, onDismiss: (() -> Void)? = nil){
         self.onDismiss = onDismiss
-        let profileHTTPClient = ProfileHTTPClient(urlString: URL.forUser(userId: userId!))
+        let profileHTTPClient = ProfileHTTPClient()
         self.user = user
         self.profileVM = ProfileViewModel(profileHTTPClient)
     }
@@ -56,18 +58,27 @@ struct ProfileScreen: View {
                                 isPasswordVisible: $isPasswordVisible,
                                 isRepeatPasswordVisible: $isRepeatPasswordVisible)
                 
+                Section {
+                    Button(action: {
+                        let userRequest = UpdateUserRequest(name: name,
+                                                            role: role,
+                                                            english_level: englishLevel,
+                                                            tech_skills: techSkills,
+                                                            cv_link: cvLink)
+                        profileVM.updateUser(userRequest, password, repeatPassword, user.id, token!) { success in
+                            if success {
+                                if let onDismiss = onDismiss {
+                                    onDismiss()
+                                }
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        }
+                    }) {
+                        Text("Save Changes")
+                    }
+                }
                 
-                SaveChangesSection(user: user,
-                                   name: $name,
-                                   password: $password,
-                                   role: $role,
-                                   englishLevel: $englishLevel,
-                                   techSkills: $techSkills,
-                                   cvLink: $cvLink,
-                                   onDismiss: onDismiss,
-                                   userId: userId!,
-                                   token: token!,
-                                   profileVM: profileVM)
+                DeleteSection(name: user.name, showConfirmDelete: $showConfirmDelete)
                 
             }
             //Show a Loading
@@ -81,12 +92,43 @@ struct ProfileScreen: View {
             self.techSkills = self.user.techSkills ?? ""
             self.englishLevel = self.user.englishLevel ?? 1
             self.cvLink = self.user.cvLink ?? ""
+            self.role = self.user.role
+        }
+        
+        //Sheet for error
+        .actionSheet(isPresented: $profileVM.showError) {
+            ActionSheet(title: Text("Error"),
+                        message: Text(profileVM.errorMessage),
+                        buttons: [
+                            .default(Text("OK"))])
+        }
+        
+        //Sheet to confirm delete user
+        .actionSheet(isPresented: $showConfirmDelete){
+            ActionSheet(title: Text("Delete user"),
+                        message: Text("Cofirm that you want delete this user"),
+                        buttons: [.destructive(Text("Delete"), action: {
+                self.profileVM.deleteUser(user.id, token!){ success in
+                    if success {
+                        if let onDismiss = onDismiss {
+                            onDismiss()
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }),
+                            .cancel()
+                        ])
         }
         .navigationBarTitle("Edit Profile")
         .navigationBarItems(trailing: Button("Back"){
             presentationMode.wrappedValue.dismiss()
         })
         .embedInNavigationView()
+        //Show a Loading
+        if self.profileVM.loadingState == .loading{
+            LoadingView()
+        }
     }
 }
 
@@ -116,6 +158,27 @@ struct PersonalInformationSection: View {
                 .padding(.leading, 15)
                 .padding(.trailing, 15)
                 .padding(.bottom, 15)
+            }
+        }
+    }
+}
+
+struct DeleteSection:View{
+    var name: String
+    @Binding var showConfirmDelete:Bool
+    var body: some View {
+        Section(header: Text("Delete User")){
+            Button(action: {
+                showConfirmDelete.toggle()
+            }) {
+                HStack{
+                    
+                    Image(systemName: "trash")
+                        .font(.title)
+                        .foregroundColor(.red)
+                    Text(name).foregroundColor(.red)
+                }
+                
             }
         }
     }
@@ -172,39 +235,6 @@ struct PasswordSection: View {
                 }
             }
             
-        }
-    }
-}
-
-struct SaveChangesSection: View {
-    let user: UserViewModel
-    @Binding var name: String
-    @Binding var password: String
-    @Binding var role: String
-    @Binding var englishLevel: Int
-    @Binding var techSkills: String
-    @Binding var cvLink: String
-    let onDismiss: (() -> Void)?
-    let userId: String
-    let token: String
-    @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var profileVM: ProfileViewModel
-    
-    var body: some View {
-        Section {
-            Button(action: {
-                let userRequest = UpdateUserRequest(name: name, email: user.email, password: password, role: role, english_level: englishLevel, tech_skills: techSkills, cv_link: cvLink)
-                profileVM.updateUser(userRequest, userId, token) { success in
-                    if success {
-                        if let onDismiss = onDismiss {
-                            onDismiss()
-                        }
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }
-            }) {
-                Text("Save Changes")
-            }
         }
     }
 }

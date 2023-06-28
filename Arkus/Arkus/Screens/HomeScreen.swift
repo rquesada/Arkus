@@ -47,8 +47,6 @@ struct HomeScreen: View {
                     .padding(.trailing, 15)
                     .padding(.bottom, 5)
                 
-                
-                
                 HStack{
                     Button("Edit Profile"){
                         showProfileScreen = true
@@ -65,7 +63,18 @@ struct HomeScreen: View {
                 }.padding()
                 Spacer()
                 
-            }.navigationBarItems(trailing: Button("Logout"){
+            }
+            .actionSheet(isPresented: $homeVM.showError) {
+                ActionSheet(title: Text("Error"),
+                            message: Text(homeVM.errorMessage),
+                            buttons: [.default(Text("OK"), action: {
+                    
+                    // If error, logout
+                    //presentationMode.wrappedValue.dismiss()
+                    
+                })])
+            }
+            .navigationBarItems(trailing: Button("Logout"){
                 presentationMode.wrappedValue.dismiss()
             })
             .navigationBarTitle("Welcome")
@@ -83,6 +92,11 @@ struct HomeScreen: View {
                 ProfileScreen(user,onDismiss: {
                     self.homeVM.getUserInfo(userId!, token: token!)
                 })
+            }else{
+                EmptyView() 
+                    .onAppear {
+                        self.showProfileScreen = false
+                    }
             }
         })
     }
